@@ -1,3 +1,6 @@
+function continueGame(){
+    const alpha = getRandomAlphabet();
+}
 function playNow(){
     // console.log("c;ick baba")
     //step1- hide the home screen
@@ -6,8 +9,9 @@ function playNow(){
     homeScreen.classList.add("hidden")
 
     //show the palyground
-    const palyGround = document.getElementById("playground");
+    const playGround = document.getElementById("playground");
     // console.log(palyGround.classList)
     //remove hidden on the classlist
-    palyGround.classList.remove("hidden")
+    playGround.classList.remove("hidden")
+    continueGame()
 }
