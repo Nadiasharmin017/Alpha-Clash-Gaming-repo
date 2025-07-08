@@ -30,3 +30,25 @@ function setBackgoundColor(elementId){
     element.classList.add("bg-orange-400");
 
 }
+
+function handleEvent(event){
+    const playerPressed = event.key;
+    console.log("player pressed", playerPressed);
+
+    // get the expected key
+    const currentAlphabetElement = document.getElementById("current-alphabet");
+    const currentAlphabet = currentAlphabetElement.innerText;
+    const expectedAlphabet = currentAlphabet.toLowerCase();
+    console.log(playerPressed,expectedAlphabet);
+
+    //check if is correct or not
+    if(playerPressed === expectedAlphabet){
+        console.log("win");
+    }
+    else{
+        console.log("loser")
+    }
+
+}
+
+document.addEventListener("keyup",handleEvent);// capture keyboard key pressed
