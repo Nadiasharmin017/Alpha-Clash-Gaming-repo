@@ -30,6 +30,10 @@ function setBackgoundColor(elementId){
     element.classList.add("bg-orange-400");
 
 }
+function removeBackgoundColor(elementId){
+    const element = document.getElementById(elementId);
+    element.classList.remove("bg-orange-400");
+}
 
 function handleEvent(event){
     const playerPressed = event.key;
@@ -44,6 +48,17 @@ function handleEvent(event){
     //check if is correct or not
     if(playerPressed === expectedAlphabet){
         console.log("win");
+        //get current score
+        const currentScoreElement = document.getElementById("current-score");
+        const currentScoreText = currentScoreElement.innerText;
+        const currentScore = parseInt(currentScoreText);
+
+        //increase score
+        const newscore = currentScore+1;
+        currentScoreElement.innerText = newscore;
+        console.log(newscore);
+        removeBackgoundColor(expectedAlphabet);
+        continueGame();
     }
     else{
         console.log("loser")
