@@ -35,6 +35,16 @@ function removeBackgoundColor(elementId){
     element.classList.remove("bg-orange-400");
 }
 
+
+//game is over 
+function gameOver(){
+    const GoToHome = document.getElementById("home-screen");
+    GoToHome.classList.remove("hidden");
+
+    //hidden playground
+    const playGroundHidden = document.getElementById("playground");
+    playGroundHidden.classList.add("hidden");
+}
 function handleEvent(event){
     const playerPressed = event.key;
     console.log("player pressed", playerPressed);
@@ -62,7 +72,21 @@ function handleEvent(event){
     }
     else{
         console.log("loser")
+        // get the current life
+        const currentLifeElement = document.getElementById("current-life");
+        const currentLifeText = currentLifeElement.innerText;
+        const currentLife = parseInt(currentLifeText);
+        //decrease life
+        const newLife = currentLife - 1;
+        currentLifeElement.innerText = newLife;
+        console.log(newLife);
+
+        if(newLife === 0){
+            console.log("game is over");
+            gameOver();
+        }
     }
+
 
 }
 
